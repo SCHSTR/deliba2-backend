@@ -16,7 +16,7 @@ export class AuthService {
         },
       })
       return {message: `Usuário criado com sucesso!`, data: user}    
-    } catch (error) { return {message: `E-mail já cadastrado`, data: error} }
+    } catch (error) { return {status: 403, message: `E-mail já cadastrado`, data: error} }
     
   }
 

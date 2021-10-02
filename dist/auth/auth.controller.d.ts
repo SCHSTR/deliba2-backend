@@ -5,6 +5,11 @@ export declare class AuthController {
     constructor(authService: AuthService);
     registerFromDiscord(discordUser: discordUser): Promise<{
         message: string;
+        data: import(".prisma/client").User;
+        status?: undefined;
+    } | {
+        status: number;
+        message: string;
         data: any;
     }>;
     registerFromApp(appUser: appUser): Promise<{
