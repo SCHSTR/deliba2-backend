@@ -3,10 +3,36 @@
 
 datasource db {
   provider = "mongodb"
-  url      = env("DATABASE_URL")
+  url      = env("DB_URI")
 }
 
 generator client {
   provider = "prisma-client-js"
   previewFeatures = ["mongoDb"]
+}
+
+model User {
+  id String @id @map("_id") @default(dbgenerated()) @db.ObjectId
+  email String @unique
+  password String?
+  discordId String?
+  telegramId String?
+  name String?
+  surname String?
+  bday String?
+  avatar String?
+  accountType String?
+  isActive Boolean? @default("false")
+}
+
+model Package {
+  id String @id @map("_id") @default(dbgenerated()) @db.ObjectId
+  codigo String
+  owner String
+  apelido String?
+  status String?
+  local String?
+  observacao String?
+  data String?
+  hora String?
 }

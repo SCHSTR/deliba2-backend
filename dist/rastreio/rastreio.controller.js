@@ -22,6 +22,12 @@ let RastreioController = class RastreioController {
     getCorreios(trackCode) {
         return this.rastreioService.getCorreios(trackCode);
     }
+    getKangu(trackCode) {
+        return this.rastreioService.getKangu(trackCode);
+    }
+    getUps(trackCode) {
+        return this.rastreioService.getUps(trackCode);
+    }
 };
 __decorate([
     (0, common_1.Get)('/correios/:trackCode'),
@@ -30,6 +36,20 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], RastreioController.prototype, "getCorreios", null);
+__decorate([
+    (0, common_1.Get)('/kangu/:trackCode'),
+    __param(0, (0, common_1.Param)('trackCode')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], RastreioController.prototype, "getKangu", null);
+__decorate([
+    (0, common_1.Get)('/ups/:trackCode'),
+    __param(0, (0, common_1.Param)('trackCode')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], RastreioController.prototype, "getUps", null);
 RastreioController = __decorate([
     (0, common_1.Controller)('rastreio'),
     __metadata("design:paramtypes", [rastreio_service_1.RastreioService])

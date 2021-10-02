@@ -6,4 +6,12 @@ export declare class RastreioController {
         trackCode: string;
         data: any;
     }>;
+    getKangu(trackCode: string): Promise<"Este código não parece ser um código valido para a Kangu, verifique e tente novamente" | {
+        trackCode: string;
+        data: any;
+    }>;
+    getUps(trackCode: string): Promise<{
+        status: number;
+        message: string;
+    }>;
 }

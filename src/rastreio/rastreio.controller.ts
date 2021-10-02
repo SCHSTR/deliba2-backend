@@ -12,4 +12,14 @@ export class RastreioController {
     return this.rastreioService.getCorreios(trackCode)
   }
 
+  @Get('/kangu/:trackCode')
+  getKangu(@Param('trackCode') trackCode: string){
+    return this.rastreioService.getKangu(trackCode)
+  }
+
+  @Get('/ups/:trackCode')
+  getUps(@Param('trackCode') trackCode: string){
+    return this.rastreioService.getUps(trackCode)
+  }
+
 }

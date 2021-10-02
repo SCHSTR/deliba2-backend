@@ -7,8 +7,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RastreioService = void 0;
+require('dotenv').config();
 const common_1 = require("@nestjs/common");
 const correios_brasil_1 = require("correios-brasil");
+const axios_1 = require("axios");
 let RastreioService = class RastreioService {
     async getCorreios(trackCode) {
         if (trackCode.length != 13)
@@ -20,6 +22,22 @@ let RastreioService = class RastreioService {
         return {
             trackCode: trackCode,
             data: result.pop()
+        };
+    }
+    async getKangu(trackCode) {
+        if (trackCode.length != 15)
+            return `Este código não parece ser um código valido para a Kangu, verifique e tente novamente`;
+        this.query = await axios_1.default.get(`https://portal.kangu.com.br/tms/transporte/rastrear/${trackCode}`, { headers: { token: process.env.KANGU_TOKEN } });
+        console.log(this.query.data.situacao);
+        return {
+            trackCode: trackCode,
+            data: this.query.data.situacao
+        };
+    }
+    async getUps(trackCode) {
+        return {
+            status: 404,
+            message: 'Content unavailable right now'
         };
     }
 };
