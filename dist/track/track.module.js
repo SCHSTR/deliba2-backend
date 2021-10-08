@@ -6,21 +6,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.TrackModule = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
-const rastreio_module_1 = require("./rastreio/rastreio.module");
-const auth_module_1 = require("./auth/auth.module");
-const track_module_1 = require("./track/track.module");
-let AppModule = class AppModule {
+const track_service_1 = require("./track.service");
+const track_controller_1 = require("./track.controller");
+let TrackModule = class TrackModule {
 };
-AppModule = __decorate([
+TrackModule = __decorate([
     (0, common_1.Module)({
-        imports: [rastreio_module_1.RastreioModule, auth_module_1.AuthModule, track_module_1.TrackModule],
-        controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        controllers: [track_controller_1.TrackController],
+        providers: [track_service_1.TrackService]
     })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], TrackModule);
+exports.TrackModule = TrackModule;
+//# sourceMappingURL=track.module.js.map
